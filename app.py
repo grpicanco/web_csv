@@ -1,7 +1,6 @@
 from flask import Flask
 from extensao import db, migrate
 from routes.inicio import web
-from models import fonte, dado, campos, arquivo
 
 
 def create_app():
@@ -13,7 +12,7 @@ def create_app():
 
     app.register_blueprint(web)
 
-    return app.run(debug=True)
+    return app
 
 
 if __name__ == '__main__':

@@ -51,10 +51,13 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
+        #inicio .btn{
+            margin: 2px 2px;
+        }
     </style>
 {% endblock %}
 {% block conteudo %}
-    <main class="form-signin w-100 m-auto">
+    <main class="form-signin w-100 m-auto" id="inicio">
         <form action="{{ url_for('web.buscar') }}" method="post">
             <img class="mb-4" src="../static/img/sacolas-de-compras.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Site para armazenamento da tabela</h1>
@@ -71,7 +74,7 @@
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Buscar</button>
             </div>
             <div class="form-floating">
-                <button class="w-100 btn btn-lg btn-primary" >Lista de Tabelas</button>
+                <a class="w-100 btn btn-lg btn-primary"  href="{{ url_for('web.listar') }}">Lista de Tabelas</a>
             </div>
 
             <p class="mt-5 mb-3 text-muted">&copy;2022</p>

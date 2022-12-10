@@ -14,4 +14,4 @@ class TipoCampo(enum.Enum):
 class Campo(BaseModel):
     nome = db.Column(db.String(120), nullable=False)
     tipo = db.Column(db.Enum(TipoCampo), default=TipoCampo.STRING)
-    arquivo = db.relationship('Arquivo', backref='campo', lazy=True, cascade='all, delete')
+    arquivo = db.Column(db.Integer, db.ForeignKey('arquivo.id', ondelete='CASCADE'), nullable=False)

@@ -1,0 +1,16 @@
+{% extends "templates.html" %}
+{% block conteudo %}
+    <div class="form-floating row align-center">
+        <h2> {{ arquivo.titulo }} </h2>
+        <div class="table-responsive">
+            <table class="table">
+                {{ tabela|safe }}
+            </table>
+        </div>
+        <div class="row">
+            {{ pagination.links }}
+            <a class="w-50 btn btn-lg btn-primary col-lg-12" href="{{ url_for('web.baixar', id=arquivo.id) }}">Baixar</a>
+        </div>
+    </div>
+
+{% endblock %}
