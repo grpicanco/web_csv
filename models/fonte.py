@@ -12,3 +12,6 @@ class BaseModel(db.Model):
 class Fonte(BaseModel):
     site = db.Column(db.String(120), nullable=False)
     url = db.Column(db.String(120), nullable=False)
+
+    def json(self,):
+        return {'site': f'{self.site}', 'url': f'{self.url}'}

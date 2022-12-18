@@ -54,6 +54,8 @@ def buscar():
 @web.route('/listar/')
 def listar():
     arquivo = Arquivo.query.all()
+    if not arquivo:
+        arquivo = None
     return render_template('table/list_tables.html', arquivos=arquivo)
 
 
@@ -90,8 +92,7 @@ def visualizar(id):
     data_col = list(data.keys())
 
     return render_template('table/render_table.html',
-                           tabela=data[(page - 1) * PER_PAGE:page * PER_PAGE][data_col].to_html(),
-                           arquivo=arquivo, pagination=pagination)
+                           tabela=data[(page - 1) * PER_PAGE:page * PER_PAGE][data_col].to_html(), arquivo=arquivo, pagination=pagination)
 
 
 @web.route('/baixar/<id>')

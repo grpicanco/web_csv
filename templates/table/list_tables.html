@@ -1,8 +1,12 @@
 {% extends "templates.html" %}
 {% block conteudo %}
     <ul>
-        {% for arquivo in arquivos %}
-            <li><a href="{{ url_for('web.visualizar', id=arquivo.id) }}"> {{ arquivo.titulo }} </a></li>
-        {% endfor %}
+        {% if arquivos %}
+            {% for arquivo in arquivos %}
+                <li><a href="{{ url_for('web.visualizar', id=arquivo.id) }}"> {{ arquivo.titulo }} </a></li>
+            {% endfor %}
+        {% else %}
+            <li> Sem dados cadastrados</li>
+        {% endif %}
     </ul>
 {% endblock %}

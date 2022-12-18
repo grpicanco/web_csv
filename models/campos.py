@@ -15,3 +15,10 @@ class Campo(BaseModel):
     nome = db.Column(db.String(120), nullable=False)
     tipo = db.Column(db.Enum(TipoCampo), default=TipoCampo.STRING)
     arquivo = db.Column(db.Integer, db.ForeignKey('arquivo.id', ondelete='CASCADE'), nullable=False)
+
+    def json(self):
+        return {
+            'nome': f'{self.nome}',
+            'tipo': f'{self.tipo}',
+            'arquivo': f'{self.arquivo}'
+        }

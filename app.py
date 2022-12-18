@@ -1,6 +1,7 @@
 from flask import Flask
 from extensao import db, migrate
 from routes.inicio import web
+from routes.api import api
 
 
 def create_app():
@@ -11,6 +12,7 @@ def create_app():
     migrate.init_app(app, db)
 
     app.register_blueprint(web)
+    app.register_blueprint(api)
 
     return app
 
